@@ -13,6 +13,32 @@ import { Textfit } from 'react-textfit'
 //         </section>
 //     )
 // }
+const buttons = [
+    'AC',
+    '+/-',
+    '%',
+    '0/0',
+    7,
+    8,
+    9,
+    'x',
+    4,
+    5,
+    6,
+    '-',
+    1,
+    2,
+    3,
+    '+',
+    0,
+    '.',
+    '=',
+]
+function generateButtons() {
+    return buttons.map((button, index) => {
+        return <div className={`div${index + 1}`}>{button}</div>
+    })
+}
 
 function Calculator() {
     return (
@@ -27,10 +53,11 @@ function Calculator() {
                     </div>
                 </div>
                 <div className="calculator__inputField">
-                    <span>
-                        <Textfit mode="single">03213123213213213</Textfit>
-                    </span>
+                    {/* <Textfit mode="single"> */}
+                    21321
+                    {/* </Textfit> */}
                 </div>
+                <div className="calculator__buttons">{generateButtons()}</div>
             </section>
         </>
     )
