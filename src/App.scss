@@ -1,38 +1,79 @@
-.App {
-  text-align: center;
+$gray: #616366;
+$black: #2d3034;
+$orange: #ff9f09;
+$red: #ff5a52;
+$green: #52c22b;
+$yellow: #e6c029;
+$white: #f0f0f0;
+
+$calc-size: 14vw;
+$border-radius: 12px;
+
+img {
+    width: 400px;
+    height: auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.calculator {
+    border-radius: $border-radius;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 300px;
+    background-color: $black;
+    height: 400px;
+}
+.calculator__titleBar {
+    display: flex;
+    width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.titleBar__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 27px;
+    border-radius: $border-radius;
 }
 
-.App-link {
-  color: #61dafb;
+.titleBar__buttons div {
+    margin-left: 11px;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+}
+.titleBar__buttons div:nth-child(2) {
+    background-color: $yellow;
+}
+.titleBar__buttons div:nth-child(3) {
+    background-color: $green;
+}
+.titleBar__buttons div:nth-child(1) {
+    background-color: $red;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.calculator__inputField {
+    width: 100%;
+    height: 70px;
+    background-color: $green;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.calculator__inputField span {
+    font-size: 3.5rem;
+    margin-right: 10px;
+    color: $white;
+    font-weight: 100;
+    overflow: hidden;
 }
