@@ -56,22 +56,20 @@ const Calculator = () => {
     }
   }
 
-  function handleDot() {
-    console.log('.')
-    if (
-      totalValue.toString().includes('.') ||
-      newInputValue.toString().includes('.')
-    )
-      return
-    if (currentOperator) {
-      setNewInputValue(newInputValue.toString() + '.')
-    } else {
-      setTotalValue(totalValue.toString() + '.')
-    }
-  }
+  // function handleDot() {
+  //   if (
+  //     totalValue.toString().includes('.') ||
+  //     newInputValue.toString().includes('.')
+  //   )
+  //     return
+  //   if (currentOperator) {
+  //     setNewInputValue(newInputValue.toString() + '.')
+  //   } else {
+  //     setTotalValue(totalValue.toString() + '.')
+  //   }
+  // }
 
   function handleDigit(digit) {
-    console.log(digit)
     if (currentOperator) {
       setNewInputValue(newInputValue * 10 + digit)
     } else {
@@ -89,9 +87,9 @@ const Calculator = () => {
       case '=':
         equal()
         break
-      case '.':
-        handleDot()
-        break
+      // case '.':
+      //   handleDot()
+      // break
       default:
         setCurrentOperator(symbol)
     }
@@ -108,6 +106,7 @@ const Calculator = () => {
   const [currentOperator, setCurrentOperator] = useState('')
   const [newInputValue, setNewInputValue] = useState(0)
 
+  // change delete button
   if (totalValue || newInputValue) BUTTONS[0].value = 'C'
   else BUTTONS[0].value = 'AC'
 
