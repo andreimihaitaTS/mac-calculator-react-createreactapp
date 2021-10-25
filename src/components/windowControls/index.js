@@ -1,11 +1,13 @@
 function WindowControls() {
-    return (
-        <div className="calculator__windowControls">
-            <span>quit</span>
-            <span>minimise</span>
-            <span>expand</span>
-        </div>
-    )
+  return (
+    <div className="calculator__titleBar">
+      <div className="titleBar__buttons">
+        <div className="close"></div>
+        <div className="minimize"></div>
+        <div className="maximize"></div>
+      </div>
+    </div>
+  )
 }
 
 export default WindowControls

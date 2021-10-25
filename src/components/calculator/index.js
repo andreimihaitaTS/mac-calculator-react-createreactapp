@@ -1,45 +1,13 @@
-import './style.scss'
-import WindowControls from '../windowControls'
-import NumberInputArea from '../numberInputArea'
-import ButtonGridArea from '../buttonGridArea'
+import { useState } from 'react'
 import CalculatorPhoto from '../../images/mac.png'
-import { Textfit } from 'react-textfit'
-import { useEffect, useState } from 'react'
-// function Calculator() {
-//     return (
-//         <section className="calculator">
-//             <WindowControls className="calculator__windowControls" />
-//             <NumberInputArea />
-//             <ButtonGridArea />
-//         </section>
-//     )
-// }
-
-const buttons = [
-  { value: 'AC', id: 1 },
-  { value: '+/-', id: 2 },
-  { value: '%', id: 3 },
-  { value: '/', id: 4 },
-  { value: 7, id: 5 },
-  { value: 8, id: 6 },
-  { value: 9, id: 7 },
-  { value: 'x', id: 8 },
-  { value: 4, id: 9 },
-  { value: 5, id: 10 },
-  { value: 6, id: 11 },
-  { value: '-', id: 12 },
-  { value: 1, id: 13 },
-  { value: 2, id: 14 },
-  { value: 3, id: 15 },
-  { value: '+', id: 16 },
-  { value: '0', id: 17 },
-  { value: '.', id: 18 },
-  { value: '=', id: 19 },
-]
+import { BUTTONS } from '../../utils/constants'
+import NumberInputArea from '../numberInputArea'
+import WindowControls from '../windowControls'
+import './style.scss'
 
 const Calculator = () => {
   function generateButtons() {
-    return buttons.map((button) => {
+    return BUTTONS.map((button) => {
       return (
         <div
           key={button.value}
@@ -140,25 +108,18 @@ const Calculator = () => {
   const [currentOperator, setCurrentOperator] = useState('')
   const [newInputValue, setNewInputValue] = useState(0)
 
-  if (totalValue || newInputValue) buttons[0].value = 'C'
-  else buttons[0].value = 'AC'
+  if (totalValue || newInputValue) BUTTONS[0].value = 'C'
+  else BUTTONS[0].value = 'AC'
 
   return (
     <>
       <img src={CalculatorPhoto} alt="poza" />
       <section className="calculator">
-        <div className="calculator__titleBar">
-          <div className="titleBar__buttons">
-            <div className="close"></div>
-            <div className="minimize"></div>
-            <div className="maximize"></div>
-          </div>
-        </div>
-        <div className="calculator__inputField">
-          {/* <Textfit mode="single"> */}
-          {newInputValue ? newInputValue : totalValue}
-          {/* </Textfit> */}
-        </div>
+        <WindowControls />
+        <NumberInputArea
+          newInputValue={newInputValue}
+          totalValue={totalValue}
+        />
         <div className="calculator__buttons">{generateButtons()}</div>
       </section>
     </>
