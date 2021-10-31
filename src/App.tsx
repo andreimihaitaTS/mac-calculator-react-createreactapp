@@ -1,16 +1,12 @@
-import { StrictMode, useState } from "react";
+import { StrictMode } from "react";
 import { render } from "react-dom";
-import Calculator from './Calculator';
-import ThemeContext from "./ThemeContext";
+import Calculator from "./Calculator";
 
 const App = () => {
-  const theme = useState("darkblue");
   return (
-    <ThemeContext.Provider value={theme}>
-       <main className="container">
-            <Calculator />
-        </main>
-    </ThemeContext.Provider>
+    <main className="container">
+      <Calculator />
+    </main>
   );
 };
 
